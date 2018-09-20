@@ -26,7 +26,7 @@ public class OI {
 	public OI() {
 		flywheelStick = new Joystick(0);
 		forwards_1 = new JoystickButton(flywheelStick, 1);
-		forwards_1.whileHeld(new SetPower(0.5));
+		// forwards_1.whileHeld(new SetPower(0.5));
 		// SmartDashboard.putData("Flywheel back and forth", new MoveFlywheelBackAndForth());
 		SmartDashboard.putData("12 V", new SetPower(1));
 		SmartDashboard.putData("9 V", new SetPower(0.75));
@@ -36,6 +36,7 @@ public class OI {
 		SmartDashboard.putData("-9 V", new SetPower(-0.75));
 		SmartDashboard.putData("-6 V", new SetPower(-0.5));
 		SmartDashboard.putData("-3 V", new SetPower(-0.25));
+		SmartDashboard.putData("STAHP", new SetPower(0));
 	}
 	
 	public double getJoystickY() {

@@ -22,35 +22,36 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Flywheel extends Subsystem {
 	
-	private final TalonSRX m_flywheel, m_flywheel2;
+	private final TalonSRX m_flywheel1, m_flywheel2;
 	
 	public Flywheel() {
-		m_flywheel = new TalonSRX(RobotMap.kFlywheelID);
+		m_flywheel1 = new TalonSRX(RobotMap.kFlywheelID);
 		m_flywheel2 = new TalonSRX(RobotMap.kFlywheel2ID);
 		
-		m_flywheel.setNeutralMode(NeutralMode.Coast);
+		m_flywheel1.setNeutralMode(NeutralMode.Coast);
 		m_flywheel2.setNeutralMode(NeutralMode.Coast);
 
-		m_flywheel.setInverted(false);
+		m_flywheel1.config_kP(0, 15, 0);
+		m_flywheel1.setInverted(false);
 		m_flywheel2.setInverted(true);
 
 	}
 
 	public void setPower(double power) {
-		m_flywheel.set(ControlMode.PercentOutput, power);
-		m_flywheel.set(ControlMode.PercentOutput, power);
+		m_flywheel1.set(ControlMode.PercentOutput, power);
+		m_flywheel2.set(ControlMode.PercentOutput, power);
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new FlywheelJoystickControl());
+		// setDefaultCommand(new FlywheelJoystickControl());
 	}
 	
 	public double getFlywheelVoltage() {
-		return m_flywheel.getMotorOutputVoltage();
+		return m_flywheel1.getMotorOutputVoltage();
 	}
 	
 	public double getFlywheelCurrent() {
-		return m_flywheel.getOutputCurrent();
+		return m_flywheel1.getOutputCurrent();
 	}
 	
 	public void reportToSmartDashboard() {

@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Timer;
 
 import org.usfirst.frc.team687.robot.commands.flywheel.MoveFlywheelBackAndForth;
 import org.usfirst.frc.team687.robot.subsystems.Flywheel;
@@ -52,6 +53,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		Robot.flywheel.reportToSmartDashboard();
 	}
 
 	/**
@@ -67,7 +69,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autoCommand = new MoveFlywheelBackAndForth();
+		// autoCommand = new MoveFlywheelBackAndForth();
 		autoCommand.start();
 		
 	}
@@ -94,6 +96,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		flywheel.reportToSmartDashboard();
+		SmartDashboard.putNumber("test", Timer.getFPGATimestamp());
 		Scheduler.getInstance().run();
 	}
 
