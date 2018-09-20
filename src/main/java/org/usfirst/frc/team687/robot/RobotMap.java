@@ -15,4 +15,6 @@ package org.usfirst.frc.team687.robot;
  */
 public class RobotMap {
 	public static final int kFlywheelID = 0;
+	public static final int kFlywheel2ID = 1;
+
 }
