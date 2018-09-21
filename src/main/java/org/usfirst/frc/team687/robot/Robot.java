@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
 
+import edu.wpi.first.wpilibj.Compressor;
 import org.usfirst.frc.team687.robot.commands.flywheel.MoveFlywheelBackAndForth;
 import org.usfirst.frc.team687.robot.subsystems.Flywheel;
 
@@ -29,6 +30,7 @@ public class Robot extends TimedRobot {
 	public static Command autoCommand;
 	public static Flywheel flywheel;
 	public static OI oi;
+	public static Compressor compressor;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -38,6 +40,8 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		flywheel = new Flywheel();
 		oi = new OI();
+		compressor = new Compressor();
+		compressor.start();
 	}
 
 	/**
