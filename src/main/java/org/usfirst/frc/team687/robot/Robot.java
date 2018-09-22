@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Compressor;
 import org.usfirst.frc.team687.robot.commands.flywheel.MoveFlywheelBackAndForth;
 import org.usfirst.frc.team687.robot.subsystems.Flywheel;
+import org.usfirst.frc.team687.robot.subsystems.Claw;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot {
 	public static Flywheel flywheel;
 	public static OI oi;
 	public static Compressor compressor;
+	public static Claw claw;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -38,6 +40,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		claw = new Claw();
 		flywheel = new Flywheel();
 		oi = new OI();
 		compressor = new Compressor();

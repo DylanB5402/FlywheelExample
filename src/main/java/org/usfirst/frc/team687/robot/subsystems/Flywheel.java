@@ -35,6 +35,14 @@ public class Flywheel extends Subsystem {
 		m_flywheel1.setInverted(false);
 		m_flywheel2.setInverted(true);
 
+		m_flywheel1.configPeakCurrentLimit(60, 0);
+		m_flywheel2.configPeakCurrentLimit(60, 0);
+		m_flywheel1.configContinuousCurrentLimit(30, 0);
+		m_flywheel2.configContinuousCurrentLimit(30, 0);
+		m_flywheel1.enableCurrentLimit(true);
+		m_flywheel2.enableCurrentLimit(true);
+
+
 	}
 
 	public void setPower(double power) {

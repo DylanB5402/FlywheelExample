@@ -9,6 +9,8 @@ package org.usfirst.frc.team687.robot;
 
 import org.usfirst.frc.team687.robot.commands.flywheel.MoveFlywheelBackAndForth;
 import org.usfirst.frc.team687.robot.commands.flywheel.SetPower;
+import org.usfirst.frc.team687.robot.commands.claw.OpenClaw;
+import org.usfirst.frc.team687.robot.commands.claw.CloseClaw;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -37,6 +39,9 @@ public class OI {
 		SmartDashboard.putData("-6 V", new SetPower(-0.5));
 		SmartDashboard.putData("-3 V", new SetPower(-0.25));
 		SmartDashboard.putData("STAHP", new SetPower(0));
+
+		SmartDashboard.putData("Close claw", new CloseClaw());
+		SmartDashboard.putData("Open claw", new OpenClaw());
 	}
 	
 	public double getJoystickY() {

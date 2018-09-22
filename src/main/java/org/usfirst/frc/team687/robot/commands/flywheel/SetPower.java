@@ -11,7 +11,8 @@ public class SetPower extends Command {
 
 	private double m_power;
     public SetPower(double power) {
-       requires(Robot.flywheel);
+        m_power = power;
+        requires(Robot.flywheel);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +21,7 @@ public class SetPower extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.flywheel.setPower(3/12);
+    	Robot.flywheel.setPower(m_power);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,7 +31,7 @@ public class SetPower extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	// Robot.flywheel.setPower(0);
+    	Robot.flywheel.setPower(0);
     }
 
     // Called when another command which requires one or more of the same
